@@ -2,7 +2,9 @@ from django.template.loader import render_to_string
 from django.template import RequestContext
 from django.http import HttpResponse
 
-from main_project import settings
+from django_general_helpers.modules.my_import import my_import
+import os
+settings = my_import(os.environ['DJANGO_SETTINGS_MODULE'])
 
 from django_general_helpers.modules.jsmin import jsmin
 
