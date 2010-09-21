@@ -1,0 +1,27 @@
+Installation:
+
+gsmag django-general-helpers
+ln <django-project> main_project
+Edit <django-project>/settings.py and add:
+
+    os.path.dirname(__file__) + '/../django-general-helpers/django_general_helpers/templates',
+
+as the first item of TEMPLATE_DIRS
+
+Add to  <django-project>/urls.py:
+
+    url('^jquery/(?P<plugins>.*)$',
+        'django_general_helpers.views.jquery.views.index',
+        name='jquery'
+    ),  
+
+    url('^css/(?P<css_templates>.*)$',
+        'django_general_helpers.views.css.views.index',
+        name='css'
+    ),  
+
+    url('^js/(?P<js_templates>.*)$',
+        'django_general_helpers.views.js.views.index',
+        name='js'
+    ),  
+
