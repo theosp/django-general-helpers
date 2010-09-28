@@ -10,7 +10,7 @@ from django_general_helpers.modules.jsmin import jsmin
 
 from django.views.decorators.cache import cache_page
 
-@cache_page(60 * 15)
+@cache_page(900000000)
 def index(request, plugins):
     if plugins:
         plugins = plugins.split(',')
