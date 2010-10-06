@@ -4,5 +4,5 @@ this.getFavicon = function (url)
     if(typeof(domain) == 'undefined')
         var domain = '';
 
-    return sprintf('<img src="http://www.google.com/s2/favicons?domain=%s" title="%s" alt="%s favicon" />', domain, url, domain);
+    return sprintf('<img src="http://www.google.com/s2/favicons?domain=%s" />', domain, url, domain);
 };
