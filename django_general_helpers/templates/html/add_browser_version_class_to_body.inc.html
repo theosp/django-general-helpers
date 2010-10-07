@@ -1,0 +1,26 @@
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        if (jQuery.browser.msie)
+        {
+            jQuery('body').addClass('ie');
+        }
+
+        // add chrome class to body if it's the chrome browser
+        if (navigator.userAgent.toLowerCase().match('chrome'))
+        {
+            jQuery('body').addClass('chrome');
+        }
+        else if (jQuery.browser.msie && (parseFloat(jQuery.browser.version) < 7 || document.documentMode < 7))
+        {
+            jQuery('body').addClass('ie6');
+        }
+        else if (jQuery.browser.msie && (parseFloat(jQuery.browser.version) < 8 || document.documentMode < 8))
+        {
+            jQuery('body').addClass('ie7');
+        }
+        else if (jQuery.browser.msie && (parseFloat(jQuery.browser.version) < 9 || document.documentMode < 9))
+        {
+            jQuery('body').addClass('ie8');
+        }
+    });
+</script>
