@@ -18,8 +18,30 @@ def sha1(string):
     h.update(string)
     return h.hexdigest()
 
+import re
+from datetime import datetime, date
+__jsdateregexp__ = re.compile(r'"\*\*(new Date\([0-9,]+\))"')
+class JsonEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, datetime):
+            return '**new Date(%i,%i,%i,%i,%i,%i)' % (obj.year,
+                                                      obj.month-1,
+                                                      obj.day,
+                                                      obj.hour,
+                                                      obj.minute,
+                                                      obj.second)
+
+        if isinstance(obj, date):
+            return '**new Date(%i,%i,%i)' % (obj.year,
+                                             obj.month-1,
+                                             obj.day)
+
+        return obj.__dict__
+
+
 def json_response(response_obj):
-    return HttpResponse(json.dumps(response_obj, default=lambda obj: obj.__dict__), mimetype="application/json")
+    response = json.dumps(response_obj, cls=JsonEncoder)
+    return HttpResponse(response, mimetype="application/json")
 
 def string_response(string):
     return HttpResponse(string)
