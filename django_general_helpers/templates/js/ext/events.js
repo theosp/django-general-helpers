@@ -2,7 +2,7 @@
 
 EventEmitter = function () {};
 
-var isArray = Array.isArray;
+var isArray = theosp.array.isArray;
 
 EventEmitter.prototype.emit = function (type) {
   // If there is no 'error' event listener then throw.

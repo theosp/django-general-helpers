@@ -38,7 +38,6 @@ class JsonEncoder(json.JSONEncoder):
 
         return obj.__dict__
 
-
 def json_response(response_obj):
     response = json.dumps(response_obj, cls=JsonEncoder)
     return HttpResponse(response, mimetype="application/json")
