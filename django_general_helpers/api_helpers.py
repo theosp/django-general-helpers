@@ -45,7 +45,7 @@ def json_response(response_obj):
 def string_response(string):
     return HttpResponse(string)
 
-def error_response(error, description, status_code=200):
+def error_response(error, description="", status_code=200):
     """The general structure for error responses"""
 
     from django.http import HttpResponseBadRequest
