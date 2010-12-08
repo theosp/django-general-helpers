@@ -10,7 +10,7 @@ from django_general_helpers.modules.jsmin import jsmin
 
 from django.views.decorators.cache import cache_page
 
-@cache_page(60 * 60 * 24 * 10)
+@cache_page(60 * 60)
 def index(request, js_templates):
     if js_templates:
         js_templates = js_templates.split(',')

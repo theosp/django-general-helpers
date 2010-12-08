@@ -50,7 +50,7 @@ def minifier(css):
         if properties:
             yield "%s{%s}" % ( ','.join( selectors ), ''.join(['%s:%s;' % (key, properties[key]) for key in porder])[:-1] )
 
-@cache_page(60 * 60 * 24 * 10)
+@cache_page(60 * 60)
 def index(request, css_templates):
     if css_templates:
         css_templates = css_templates.split(',')
